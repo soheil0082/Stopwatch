@@ -43,13 +43,14 @@ function startStopwatch() {
 }
 
 function stopStopwatch() {
+  if (!isStarted) return;
   timeStampObj.innerHTML += `<div>${getCurrentTime()}</div>`;
 }
 
 function resetStopwatch() {
   clearInterval(timer);
+  time.innerHTML = `00 : 00 : 00 : 000`;
   isStarted = false;
-  startStopwatch();
 }
 
 startBtn.addEventListener("click", startStopwatch);
